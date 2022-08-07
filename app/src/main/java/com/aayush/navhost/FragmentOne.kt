@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,11 +23,9 @@ class FragmentOne : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    override fun onDetach() {
-        System.out.println("fragment  Detached")
-        super.onDetach()
-    }
-    var gotoFragment2: Button? = null
+    lateinit var button: Button
+    lateinit var initView: View
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         System.out.println("fragment Created")
@@ -43,9 +43,17 @@ class FragmentOne : Fragment() {
     ): View? {
         System.out.println("fragment  View Created")
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_one, container, false)
+        initView= inflater.inflate(R.layout.fragment_one, container, false)
+        return initView
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button=initView.findViewById(R.id.button1)
+        button.setOnClickListener(){
+            Navigation.findNavController(view).navigate(R.id.action_fragmentOne_to_fragmentTwo)
+        }
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -72,6 +80,10 @@ class FragmentOne : Fragment() {
     override fun onDestroy() {
         System.out.println("fragment  Destroyed")
         super.onDestroy()
+    }
+    override fun onDetach() {
+        System.out.println("fragment  Detached")
+        super.onDetach()
     }
 
 
