@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.Navigation
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +23,7 @@ class FragmentTwo : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     lateinit var initView: View
+    lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,6 +39,13 @@ class FragmentTwo : Fragment() {
         // Inflate the layout for this fragment
         initView= inflater.inflate(R.layout.fragment_two, container, false)
         return initView
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        button=initView.findViewById(R.id.button1)
+        button.setOnClickListener(){
+            Navigation.findNavController(view).navigate(R.id.action_fragmentOne_to_fragmentTwo)
+        }
     }
 
     companion object {

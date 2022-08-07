@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <fragment
+
+
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_controller"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:navGraph="@navigation/nav_graph"
+        android:layout_weight="1"
         app:defaultNavHost="true"
-        android:name="com.aayush.navhost.FragmentOne"
-        />
-
-
+        app:navGraph="@navigation/nav_graph" />
 </LinearLayout>
