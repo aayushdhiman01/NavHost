@@ -20,7 +20,7 @@ class FragmentTwo : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    lateinit var initView: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,7 +34,8 @@ class FragmentTwo : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_two, container, false)
+        initView= inflater.inflate(R.layout.fragment_two, container, false)
+        return initView
     }
 
     companion object {
