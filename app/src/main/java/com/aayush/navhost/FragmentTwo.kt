@@ -42,9 +42,9 @@ class FragmentTwo : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button=initView.findViewById(R.id.button1)
+        button=initView.findViewById(R.id.button2)
         button.setOnClickListener(){
-            Navigation.findNavController(view).navigate(R.id.action_fragmentOne_to_fragmentTwo)
+            Navigation.findNavController(view).navigate(R.id.action_fragmentTwo_to_fragmentOne2)
         }
     }
 

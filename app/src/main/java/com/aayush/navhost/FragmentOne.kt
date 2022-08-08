@@ -43,15 +43,15 @@ class FragmentOne : Fragment() {
     ): View? {
         System.out.println("fragment  View Created")
         // Inflate the layout for this fragment
-        initView= inflater.inflate(R.layout.fragment_two, container, false)
+        initView= inflater.inflate(R.layout.fragment_one, container, false)
         return initView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button=initView.findViewById(R.id.button2)
+        button=initView.findViewById(R.id.button1)
         button.setOnClickListener(){
-            Navigation.findNavController(view).navigate(R.id.action_fragmentTwo_to_fragmentOne2)
+            Navigation.findNavController(view).navigate(R.id.action_fragmentOne_to_fragmentTwo)
         }
     }
     companion object {

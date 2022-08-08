@@ -14,8 +14,7 @@
         <action
             android:id="@+id/action_fragmentOne_to_fragmentTwo"
             app:destination="@id/fragmentTwo"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
+            />
     </fragment>
     <fragment
         android:id="@+id/fragmentTwo"
